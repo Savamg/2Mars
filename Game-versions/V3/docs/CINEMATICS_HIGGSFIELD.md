@@ -1,53 +1,12 @@
-# Cinemáticas: estado y guiones para Higgsfield
+# Archived documentation — V3
 
-2Mars V3 · Desarrollado en distintas sesiones durante el 14 y 15 de noviembre.
+This file is retained as a navigation notice for historical repository links. Its original notes describe an earlier development snapshot and are not current implementation or submission evidence.
 
-## Estado en esta entrega
+The current project is **2Mars V5.1.0**. For up-to-date information, use:
 
-**El juego no incluye ningún vídeo de Higgsfield.** Las tres secuencias (lanzamiento, crucero y aterrizaje) son animaciones nativas de Godot, dibujadas por código, saltables y con modo de movimiento reducido.
+- [Current game guide](../../V5/README.md)
+- [Current technical documentation](../../V5/docs/README.md)
+- [Current project evidence](../../../evidence/README.md)
+- [Current research index](../../../research/README.md)
 
-Qué se hizo con Higgsfield:
-
-- Se envió **un** trabajo de prueba: modelo `seedance_2_5`, texto a vídeo, 5 s, 720p, 16:9, sin audio, con la asignación gratuita de la cuenta (`use_unlim`). Créditos de pago gastados: **0**.
-- Al cerrar esta entrega el trabajo seguía en cola (`waiting`), sin resultado. Identificador: `79a5cb52-7cea-4ebd-84e4-61f15bced98f`.
-- No se generó ninguna imagen ni ningún otro vídeo.
-
-## El juego ya está preparado para recibir los vídeos
-
-`scripts/screens/transit.gd` busca estos archivos y, si existen, los reproduce detrás de los textos; si no existen, usa la animación nativa:
-
-| Archivo | Momento | Bucle |
-|---|---|---|
-| `assets/video/launch.ogv` | Despegue y ascenso | No |
-| `assets/video/cruise.ogv` | Crucero | Sí |
-| `assets/video/landing.ogv` | Entrada, descenso y aterrizaje | No |
-
-Godot reproduce **Ogg Theora** (`.ogv`), no MP4. Para convertir:
-
-```
-ffmpeg -i clip.mp4 -an -c:v libtheora -q:v 7 -vf "scale=1280:720" launch.ogv
-```
-
-**Sin probar:** como no hubo ningún vídeo, la reproducción, el salto y el retorno a la animación nativa con un archivo real no se han comprobado. Lo comprobado es que sin archivos el juego usa la animación nativa.
-
-## Reglas para cualquier clip
-
-- Estilizado, vectorial o low-poly, con la paleta del juego: `#191922`, `#293746`, `#F5DB98`, `#91C6BB`, `#FFAD45`, `#AA5D40`.
-- Sin texto, logotipos, insignias de la NASA ni personas reales.
-- No presentarlo como metraje real. En los créditos: «Cinemática generada con IA (Higgsfield, modelo …)».
-- 16:9, 720p, 5 a 8 s, sin audio (el juego pone el suyo).
-- Las reglas de Space Apps piden declarar las herramientas de IA usadas: anotar modelo, prompt y fecha.
-
-## Guion 1 · Lanzamiento (`launch.ogv`)
-
-> Stylized flat vector animation, low-poly look. A cream and orange rocket lifts off from a launch pad at dusk, a column of warm orange exhaust and soft mint-colored smoke clouds billowing outward. Camera slowly tilts up following the rocket into a deep navy sky with a few stars. Limited palette: dark ink blue, navy, cream, mint green, orange, rust. Clean shapes, no text, no logos, no people. Smooth, calm motion.
-
-## Guion 2 · Crucero (`cruise.ogv`, en bucle)
-
-> Stylized flat vector animation, low-poly look. A small cruise-stage spacecraft with a round aeroshell drifts slowly from left to right through deep space, tiny stars sliding past in parallax, a small rust-red planet growing slightly in the distance. Limited palette: dark ink blue, navy, cream, mint green, orange, rust. Clean shapes, no text, no logos. Very slow, seamless, loopable motion.
-
-## Guion 3 · Aterrizaje (`landing.ogv`)
-
-> Stylized flat vector animation, low-poly look. A cream aeroshell glows orange as it enters a thin rust-colored atmosphere, then a large cream and orange parachute opens, the heat shield drops away, and a descent stage lowers a small six-wheeled rover on cables onto a faceted rust-red surface. Dust puffs on touchdown. Limited palette: dark ink blue, navy, cream, mint green, orange, rust. Clean shapes, no text, no logos, no people.
-
-El aterrizaje del juego es un modelo simplificado inspirado en Mars 2020; el clip no debe presentarse como una reproducción exacta.
+Historical source code for V3 remains available in this repository, but feature claims, test results, production status and instructions in older records must not be applied to V5.1 unless independently confirmed there.
